@@ -4,7 +4,9 @@ on:
     inputs:
       issue_number:
         description: subdir underneath /issues
-        type: string
+        type: choice
+        options:
+          - issue_576
         required: true
 
 jobs:
