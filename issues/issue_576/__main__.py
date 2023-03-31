@@ -26,6 +26,7 @@ def _get_registry_info(rid):
 ecr_repo = aws.ecr.Repository(
     resource_name="issue_576:repo",
     name="issue_576",
+    force_delete=True,
     # Tags are not relevant to the issue
     # but mandatory for the AWS permissions (not shown here)
     tags={
