@@ -77,7 +77,7 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Pulumi
+      - name: Pulumi Preview
         uses: pulumi/actions@v3
         with:
           command: preview
@@ -86,7 +86,7 @@ jobs:
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
 
-      - name: Pulumi
+      - name: Pulumi Up
         uses: pulumi/actions@v3
         with:
           command: up
