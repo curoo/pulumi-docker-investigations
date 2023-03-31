@@ -42,7 +42,6 @@ image = docker.Image(
         context=str(PROJECT_DIR),
         dockerfile=str(PROJECT_DIR / "Dockerfile"),
         platform="linux/amd64",
-        target="prod",
         # BREAKS START
         cache_from=docker.CacheFromArgs(images=[pulumi.Output.concat(ecr_repo.repository_url, ":latest")])
         # BREAKS END
