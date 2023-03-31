@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "issue-566"
+version = "0.1.0"
+description = "Reproduce pulumi-docker issue 566"
+authors = ["expend"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+pulumi-docker = "^4.1.1"
+pulumi-aws = "^5.34.0"
