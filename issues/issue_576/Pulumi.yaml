@@ -1,0 +1,4 @@
+name: pulumi-docker-issue-576
+runtime:
+  name: python
+description: Pulumi Docker - Issue 576
