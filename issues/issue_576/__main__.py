@@ -26,6 +26,12 @@ def _get_registry_info(rid):
 ecr_repo = aws.ecr.Repository(
     resource_name="my_app:repo",
     name="my_app",
+    # Tags are not relevant to the issue
+    # but mandatory for the AWS permissions (not shown here)
+    tags={
+        "pulumi:project": pulumi.get_project(),
+        "pulumi:stack": pulumi.get_stack(),
+    }
 )
 
 registry = ecr_repo.registry_id.apply(_get_registry_info)
