@@ -48,6 +48,6 @@ image = docker.Image(
         # BREAKS END
     ),
     registry=registry,
-    image_name=pulumi.Output.concat(ecr_repo.repository_url, "issue_576:latest"),
+    image_name=pulumi.Output.concat(ecr_repo.repository_url, ":latest"),
     skip_push=True,
 )

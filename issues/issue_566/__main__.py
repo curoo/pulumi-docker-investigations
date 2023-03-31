@@ -43,8 +43,8 @@ image = docker.Image(
         context=str(PROJECT_DIR),
         dockerfile=str(PROJECT_DIR / "Dockerfile"),
         platform="linux/amd64",
-        cache_from=docker.CacheFromArgs(images=[pulumi.Output.concat(ecr_repo.repository_url, ":latest")])
+        # cache_from=docker.CacheFromArgs(images=[pulumi.Output.concat(ecr_repo.repository_url, ":latest")])
     ),
     registry=registry,
-    image_name=pulumi.Output.concat(ecr_repo.repository_url, "issue_566:latest"),
+    image_name=pulumi.Output.concat(ecr_repo.repository_url, ":latest"),
 )
