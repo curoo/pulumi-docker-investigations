@@ -6,6 +6,7 @@ on:
         description: subdir underneath /issues
         type: choice
         options:
+          - issue_566
           - issue_576
         required: true
 
