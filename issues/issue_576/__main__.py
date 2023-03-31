@@ -24,8 +24,8 @@ def _get_registry_info(rid):
 
 
 ecr_repo = aws.ecr.Repository(
-    resource_name="my_app:repo",
-    name="my_app",
+    resource_name="issue_576:repo",
+    name="issue_576",
     # Tags are not relevant to the issue
     # but mandatory for the AWS permissions (not shown here)
     tags={
@@ -37,7 +37,7 @@ ecr_repo = aws.ecr.Repository(
 registry = ecr_repo.registry_id.apply(_get_registry_info)
 
 image = docker.Image(
-    "my_app:image",
+    "issue_576:image",
     build=docker.DockerBuildArgs(
         context=str(PROJECT_DIR),
         dockerfile=str(PROJECT_DIR / "Dockerfile"),
@@ -48,6 +48,6 @@ image = docker.Image(
         # BREAKS END
     ),
     registry=registry,
-    image_name=pulumi.Output.concat(ecr_repo.repository_url, "my_app:latest"),
+    image_name=pulumi.Output.concat(ecr_repo.repository_url, "issue_576:latest"),
     skip_push=True,
 )
