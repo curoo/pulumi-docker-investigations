@@ -1,0 +1,4 @@
+name: pulumi-docker-issue-573
+runtime:
+  name: python
+description: Pulumi Docker - Issue 573
