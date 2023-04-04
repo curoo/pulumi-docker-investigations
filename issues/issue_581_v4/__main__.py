@@ -1,4 +1,5 @@
 import base64
+from datetime import datetime
 from pathlib import Path
 
 import pulumi
@@ -48,5 +49,21 @@ image = docker.Image(
     image_name=pulumi.Output.concat(ecr_repo.repository_url, ":latest"),
 )
 
-pulumi.export("base_image_name", image.base_image_name)
-pulumi.export("image_name", image.image_name)
+# I expected image_name to be different to base_image_name, to contain a unique tag
+pulumi.export("latest:base_image_name", image.base_image_name)
+pulumi.export("latest:image_name", image.image_name)
+
+workaround_tag = datetime.now().strftime("%Y-%m-%d_%H-%M-%S.%f")
+workaround_image = docker.Image(
+    "workaround_image",
+    build=docker.DockerBuildArgs(
+        context=str(PROJECT_DIR),
+        dockerfile=str(PROJECT_DIR / "Dockerfile"),
+        platform="linux/amd64",
+    ),
+    registry=registry,
+    image_name=pulumi.Output.concat(ecr_repo.repository_url, ":", workaround_tag),
+)
+
+pulumi.export("specific_tag:base_image_name", workaround_image.base_image_name)
+pulumi.export("specific_tag:image_name", workaround_image.image_name)
