@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "issue_581_v4"
+version = "0.1.0"
+description = "Investigate tagging behaviour in v4"
+authors = ["expend"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+pulumi = "^3.60"
+pulumi-docker = "^4"
+pulumi-aws = "^5.34.0"
