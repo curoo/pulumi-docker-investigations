@@ -9,6 +9,8 @@ on:
           - issue_566
           - issue_573
           - issue_576
+          - issue_581_v3
+          - issue_581_v4
         required: true
 
 jobs:

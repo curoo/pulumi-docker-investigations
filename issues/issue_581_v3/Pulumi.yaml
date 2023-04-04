@@ -1,0 +1,4 @@
+name: pulumi-docker-issue-581-v3
+runtime:
+  name: python
+description: Pulumi Docker - Issue 581 v3
