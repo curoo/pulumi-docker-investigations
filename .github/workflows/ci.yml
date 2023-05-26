@@ -81,6 +81,14 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - name: Provide Docker Info
+        run: docker info
+        shell: bash
+
+      - name: Provide Docker Version
+        run: docker version
+        shell: bash
+
       - name: Pulumi Preview
         uses: pulumi/actions@v3
         with:
